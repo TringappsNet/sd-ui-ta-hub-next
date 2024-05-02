@@ -22,7 +22,6 @@ form {
     max-width: 450px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    /* Adjust form size and styling as needed */
 }
 
     .header {
@@ -96,18 +95,16 @@ form {
   }
   
   .btn-save {
-    background-color: #007bff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #0a8080;
     color: #fff;
-    border: none;
-    border-radius: 24px;
     cursor: pointer;
-    width: 95%;
-    margin: 8px;
+    width: 93%;
+    margin: 16px;
   }
   
-  .btn-save:hover {
-    background-color: #0352a7;
-  }
   
   hr {
     border: 1px solid black;

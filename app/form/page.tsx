@@ -7,8 +7,12 @@ import { FaTimes } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+interface FormProps {
+    onClose: () => void; // Define the prop type for onClose
+  }
 
-const Form: NextPage = () => {
+
+const Form: React.FC<FormProps> = ({ onClose }) => {      
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [reqStartDate, setReqStartDate] = useState<Date | null>(null)
     const [projectStartDate, setProjectStartDate] = useState<Date | null>(null);
@@ -218,7 +222,7 @@ const Form: NextPage = () => {
           </div>
           </div>
           <div className='footer'>
-          <button type="submit" className="btn btn-primary btn-save">Submit</button>
+          <button type="submit" className="btn-save">Submit</button>
           </div>
       </form>
     </div>

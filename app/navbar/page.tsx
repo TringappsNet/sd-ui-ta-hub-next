@@ -5,12 +5,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/Navbar.css';
 import Form from '../form/page';
 
+
 const Navbar: NextPage = () => {
     const [showForm, setShowForm] = useState(false);
 
     const openForm = (event: { preventDefault: () => void; }) => {
         event.preventDefault(); 
-        setShowForm(prevState => !prevState); // Toggle the state
+        setShowForm(prevState => !prevState); 
     };
     
     const closeForm = () => {

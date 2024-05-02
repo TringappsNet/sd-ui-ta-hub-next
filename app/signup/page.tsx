@@ -34,7 +34,7 @@ export default function SignupPage() {
             setLoading(false);
         }
     }
-    const handlePhoneChange = (value) => {
+    const handlePhoneChange = (value: any) => {
       setUser({...user, phone: value});
   }
 

@@ -30,7 +30,7 @@ export default function LoginPage() {
     return isValid;
   };
 
-  const onLogin = async (event) => {
+  const onLogin = async (event: any) => {
     event.preventDefault();
     if (validateForm()) {
       try {
@@ -38,27 +38,29 @@ export default function LoginPage() {
         console.log("Login success", response.data);
         toast.success("Login success");
         router.push("/profile");
-      } catch (error) {
+      } catch (error: any) { 
         handleSnackbarOpen(error.message, "error");
       }
     }
   };
+  ;
 
-  const handleSnackbarOpen = (message, variant) => {
+  const handleSnackbarOpen = (message: string, variant: "success" | "error") => {
     setSnackbarMessage(message);
     setSnackbarVariant(variant);
     setOpenSnackbar(true);
   };
+  
 
   const handleSnackbarClose = () => {
     setOpenSnackbar(false);
   };
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: any) => {
     setUser({ ...user, email: e.target.value });
   };
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = (e: any) => {
     setUser({ ...user, password: e.target.value });
   };
 
