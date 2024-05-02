@@ -1,0 +1,18 @@
+.navbar-brand{
+    padding: 7px;
+    cursor: pointer;
+    color: green;
+    margin-bottom: 0;
+}
+
+.nav-button{
+    margin-right: 10px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0; /* Adjust top position if needed */
+    left: 0;
+    width: 100%; 
+}
+
