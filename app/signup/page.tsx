@@ -6,7 +6,8 @@ import axios from "axios";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import '../styles/signup.css';
- 
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 export default function SignupPage() {
     const router = useRouter();
