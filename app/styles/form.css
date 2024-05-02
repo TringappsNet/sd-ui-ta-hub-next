@@ -1,0 +1,152 @@
+.container {
+    margin-right: 0;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100vh;
+    font-size: 13px;
+    font-style: normal;
+    font-family: inherit;
+    font-weight: 350;
+    max-width: 500px;
+}
+
+.position{
+    padding-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    max-width: 450px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Adjust form size and styling as needed */
+}
+
+    .header {
+        display: flex;
+        justify-content: space-between; /* Align items horizontally with space between */
+        align-items: center;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        /* background-color: #f8f9fa; */
+        padding: 10px;
+    }
+
+    .footer{
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+
+    }
+
+  .calender{
+    width: 214%;
+    height: 35px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 2px solid #e9e8e8;
+    border-radius: 4px;
+  }
+
+  .fields{
+    padding: 0 0 0 5px;
+  }
+  
+  .header h3 {
+    margin: 0;
+    font-weight: 200px;
+    font-size: 1.25rem; 
+  }
+  
+  .close-icon {
+    cursor: pointer;
+    margin-right: 10px;
+    color: darkslategray;
+    height: 16px;
+  }
+  
+  h3 {
+    font-size: 25px;
+  }
+  
+  .form-label {
+    margin-bottom: 2px;
+  }
+  
+  .input-box {
+    width: 99%;
+    height: 35px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 2px solid #e9e8e8;
+    border-radius: 4px;
+  }
+
+  .text-area {
+    width: 99%;
+    height: 70px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #a0a0a0;
+    border-radius: 4px;
+  }
+  
+  .input-box:focus {
+    border: #007bff;
+  }
+  
+  .btn-save {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    width: 95%;
+    margin: 8px;
+  }
+  
+  .btn-save:hover {
+    background-color: #0352a7;
+  }
+  
+  hr {
+    border: 1px solid black;
+  }
+  
+  .form-content {
+    position: relative;
+    height: 500px;
+  }
+  
+  .scrollable-area {
+    max-height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+::-webkit-scrollbar {
+    width: 12px; 
+}
+
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c2c2c2; 
+}
+
+  
+  @media screen and (max-width: 600px) {
+    form {
+      width: 80%;
+    }
+  }
+  
