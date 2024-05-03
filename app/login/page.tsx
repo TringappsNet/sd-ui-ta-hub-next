@@ -17,28 +17,35 @@ export default function LoginPage() {
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarVariant, setSnackbarVariant] = useState<"success" | "error">("success");
 
+ 
   const validateForm = () => {
     let isValid = true;
 
     if (!user.email.trim()) {
       handleSnackbarOpen("Email is required", "error");
       isValid = false;
+    } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(user.email)) {
+      handleSnackbarOpen("Invalid email format", "error");
+      isValid = false;
     } else if (!user.password.trim()) {
       handleSnackbarOpen("Password is required", "error");
+      isValid = false;
+    } else if (user.password.length < 8) {
+      handleSnackbarOpen("Password must be at least 8 characters long", "error");
       isValid = false;
     }
 
     return isValid;
   };
-
   const onLogin = async (event: any) => {
     event.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post("/api/users/login", user);
-        console.log("Login success", response.data);
+        // const response = await axios.post("/api/users/login", user);
+        // console.log("Login success", response.data);
+        handleSnackbarOpen("Succesfully Login!!","success");
         toast.success("Login success");
-        router.push("/profile");
+        router.push("/form");
       } catch (error: any) { 
         handleSnackbarOpen(error.message, "error");
       }
@@ -100,7 +107,7 @@ export default function LoginPage() {
           placeholder="Password"
         />
 
-        <a href="/signup" className="forget">
+        <a href="/forget" className="forget">
           Forget password?
         </a>
 
