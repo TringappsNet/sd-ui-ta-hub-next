@@ -32,6 +32,8 @@ form{
   background-color: #ffffff;
 }
 
+
+
 @media screen and (max-width: 768px) {
   .card1 {
     width: 90%; 
@@ -44,6 +46,11 @@ form{
     
   }
 
+}
+@media screen and (max-width: 368px) {
+  .card1 {
+    width: 80%; 
+  }
 }
 
 
