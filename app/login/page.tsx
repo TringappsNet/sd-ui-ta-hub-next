@@ -5,6 +5,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import "../styles/login.css";
 import CustomSnackbar from "../CustomSnackbar/CustomSnackbar";
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function LoginPage() {
   });
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
-  const [snackbarVariant, setSnackbarVariant] = useState("success"); // To determine success or error variant
+  const [snackbarVariant, setSnackbarVariant] = useState<"success" | "error">("success");
 
   const validateForm = () => {
     let isValid = true;
@@ -30,7 +31,7 @@ export default function LoginPage() {
     return isValid;
   };
 
-  const onLogin = async (event) => {
+  const onLogin = async (event: any) => {
     event.preventDefault();
     if (validateForm()) {
       try {
@@ -38,27 +39,29 @@ export default function LoginPage() {
         console.log("Login success", response.data);
         toast.success("Login success");
         router.push("/profile");
-      } catch (error) {
+      } catch (error: any) { 
         handleSnackbarOpen(error.message, "error");
       }
     }
   };
+  ;
 
-  const handleSnackbarOpen = (message, variant) => {
+  const handleSnackbarOpen = (message: string, variant: "success" | "error") => {
     setSnackbarMessage(message);
     setSnackbarVariant(variant);
     setOpenSnackbar(true);
   };
+  
 
   const handleSnackbarClose = () => {
     setOpenSnackbar(false);
   };
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: any) => {
     setUser({ ...user, email: e.target.value });
   };
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = (e: any) => {
     setUser({ ...user, password: e.target.value });
   };
 
