@@ -82,9 +82,10 @@ export default function SignupPage() {
         }
     };
 
-    const handlePhoneChange = (value: string) => {
-        setUser({ ...user, phone: value });
+    const handlePhoneChange = (value: string | undefined) => {
+        setUser({ ...user, phone: value || "" }); // If value is undefined, set phone to empty string
     };
+    
 
     const handleSnackbarOpen = (message: string, variant: "success" | "error") => {
         setSnackbarMessage(message);
@@ -96,6 +97,8 @@ export default function SignupPage() {
     };
 
     return (
+        <div role="form" onKeyPress={(e) => { if (e.key === 'Enter') onSignup(e); }}>
+
         <form>
             <CustomSnackbar
                 open={openSnackbar}
@@ -112,7 +115,7 @@ export default function SignupPage() {
                     type="text"
                     value={user.username}
                     onChange={(e) => setUser({ ...user, username: e.target.value })}
-                    placeholder="Enter your username"
+                    placeholder="Username"
                     style={{ borderColor: (formSubmitted && !user.username.trim()) ? "grey" : "" }}
                 />
                 <label htmlFor="email">Email</label>
@@ -122,7 +125,7 @@ export default function SignupPage() {
                     type="email"
                     value={user.email}
                     onChange={(e) => setUser({ ...user, email: e.target.value })}
-                    placeholder="Enter your email"
+                    placeholder="Email"
                     style={{ borderColor: (formSubmitted && !user.email.trim()) ? "grey" : "" }}
                 />
              
@@ -130,7 +133,7 @@ export default function SignupPage() {
                 <PhoneInput
                     className="input-field"
                     id="phone"
-                    placeholder="Enter your phone number"
+                    placeholder="Phone number"
                     value={user.phone}
                     onChange={handlePhoneChange}
                     style={{ borderColor: (formSubmitted && !user.phone.trim()) ? "grey" : "" }}
@@ -143,7 +146,7 @@ export default function SignupPage() {
                     type="password"
                     value={user.password}
                     onChange={(e) => setUser({ ...user, password: e.target.value })}
-                    placeholder="Enter your password"
+                    placeholder="Password"
                     style={{ borderColor: (formSubmitted && !user.password.trim()) ? "grey" : "" }}
                 />
                 <label htmlFor="confirmpassword">Confirm Password</label>
@@ -153,7 +156,7 @@ export default function SignupPage() {
                     type="password"
                     value={user.confirmpassword}
                     onChange={(e) => setUser({ ...user, confirmpassword: e.target.value })}
-                    placeholder="Confirm your password"
+                    placeholder="Confirm password"
                     style={{ borderColor: (formSubmitted && !user.confirmpassword.trim()) ? "grey" : "" }}
                 />
                 <button
@@ -167,6 +170,8 @@ export default function SignupPage() {
                 <a href="/login" className="link">Already have an account? Login</a>
             </div>
         </form>
+        </div>
+
     );
 }
 
