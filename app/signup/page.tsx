@@ -8,6 +8,8 @@ import 'react-phone-number-input/style.css';
 import '../styles/signup.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import CustomSnackbar from "../CustomSnackbar/CustomSnackbar";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 export default function SignupPage() {
     const router=useRouter();
@@ -18,6 +20,9 @@ export default function SignupPage() {
         confirmpassword: "",
         phone: ""
     });
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword1, setShowPassword1] = useState(false);
+
     const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
     const [snackbarMessage, setSnackbarMessage] = useState<string>("");
     const [snackbarVariant, setSnackbarVariant] = useState<"success" | "error">("success");
@@ -110,6 +115,7 @@ export default function SignupPage() {
                 <h1>Signup</h1>
                 <label htmlFor="username">Username</label>
                 <input
+                required
                     className="input-field"
                     id="username"
                     type="text"
@@ -139,26 +145,40 @@ export default function SignupPage() {
                     style={{ borderColor: (formSubmitted && !user.phone.trim()) ? "grey" : "" }}
                 />
                 
+                <div>
                 <label htmlFor="password">Password</label>
-                <input
+                <div className="password-input">
+                    <input
                     className="input-field"
                     id="password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={user.password}
                     onChange={(e) => setUser({ ...user, password: e.target.value })}
                     placeholder="Password"
                     style={{ borderColor: (formSubmitted && !user.password.trim()) ? "grey" : "" }}
-                />
+                    />
+                    <span className="input-icon" onClick={() => setShowPassword(!showPassword)}>
+                    <FontAwesomeIcon icon={showPassword ? faEye :faEyeSlash } />
+                    </span>
+                </div>
+
                 <label htmlFor="confirmpassword">Confirm Password</label>
-                <input
+                <div className="password-input">
+                    <input
                     className="input-field"
                     id="confirmpassword"
-                    type="password"
+                    type={showPassword1 ? "text" : "password"}
                     value={user.confirmpassword}
                     onChange={(e) => setUser({ ...user, confirmpassword: e.target.value })}
                     placeholder="Confirm password"
                     style={{ borderColor: (formSubmitted && !user.confirmpassword.trim()) ? "grey" : "" }}
-                />
+                    />
+                    <span className="input-icon" onClick={() => setShowPassword1(!showPassword1)}>
+                    <FontAwesomeIcon icon={showPassword1 ? faEye :faEyeSlash} />
+                    </span>
+                </div>
+                </div>
+
                 <button
                     onClick={onSignup}
                     className="button"

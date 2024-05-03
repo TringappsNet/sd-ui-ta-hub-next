@@ -6,6 +6,8 @@ import { toast } from "react-hot-toast";
 import "../styles/login.css";
 import CustomSnackbar from "../CustomSnackbar/CustomSnackbar";
 import 'bootstrap/dist/css/bootstrap.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 export default function LoginPage() {
   const router = useRouter();
@@ -13,6 +15,7 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarVariant, setSnackbarVariant] = useState<"success" | "error">("success");
@@ -104,15 +107,20 @@ export default function LoginPage() {
           placeholder="Email"
         />
 
-        <label htmlFor="password">Password</label>
-        <input
-          className="input-field"
-          id="password"
-          type="password"
-          value={user.password}
-          onChange={handlePasswordChange}
-          placeholder="Password"
-        />
+          <label htmlFor="password">Password</label>
+          <div className="password-input">
+          <input
+            className="input-field"
+            id="password"
+            type={showPassword ? "text" : "password"}
+            value={user.password}
+            onChange={handlePasswordChange}
+            placeholder="Password"
+          />
+          <span className="input-icon" onClick={() => setShowPassword(!showPassword)}>
+            <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
+          </span>
+        </div>
 
         <a href="/forget" className="forget">
           Forget password?
