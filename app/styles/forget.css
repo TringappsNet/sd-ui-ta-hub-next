@@ -1,0 +1,78 @@
+
+h2 {
+    text-align: center;
+  }
+  .error {
+    color: red;
+  }
+  
+  form{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    margin: 0;
+    font-weight: 500;
+    /* background-color: #0a8080; */
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif ;
+  }
+  
+  .card1 {
+    min-height: 200px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      padding: 20px;
+    width: 50%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #ffffff;
+  }
+  @media screen and (max-width: 768px) {
+    .card1 {
+      width: 90%;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .card1 {
+      width: 100%;
+    }
+  }
+  
+  .Email{
+    padding-top: 20px;
+  }
+  .input-field {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #0a8080;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #005961;
+    border-color: #005961;
+  }
+  
+  .forget{
+    color: #0a8080;
+  }
+  
+  .text-center>a{
+    text-align: center;
+    color: #0a8080;
+    font-size:small;
+  }

@@ -103,3 +103,11 @@ input[type="checkbox"] {
   color: #0a8080;
 
 }
+.PhoneInputInput {
+  border: none;
+}
+.PhoneInputInput:focus{
+  /* border: 1px solid rgb(255, 255, 255); */
+  outline-color: transparent;
+
+}
