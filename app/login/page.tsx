@@ -5,6 +5,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import "../styles/login.css";
 import CustomSnackbar from "../CustomSnackbar/CustomSnackbar";
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function LoginPage() {
   });
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
-  const [snackbarVariant, setSnackbarVariant] = useState("success"); // To determine success or error variant
+  const [snackbarVariant, setSnackbarVariant] = useState<"success" | "error">("success");
 
   const validateForm = () => {
     let isValid = true;
