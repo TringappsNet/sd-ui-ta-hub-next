@@ -13,7 +13,7 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   align-items: center;
   margin: 0;
   font-weight: 500;
@@ -23,7 +23,7 @@ form{
 
 
 .card1 {
-  min-height: 500px;
+  min-height: 300px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     padding: 20px;
   width: 50%; 
@@ -31,6 +31,7 @@ form{
   margin: 0 auto; 
   background-color: #ffffff;
 }
+
 @media screen and (max-width: 768px) {
   .card1 {
     width: 90%; 
@@ -67,6 +68,8 @@ form{
   color: #fff;
   cursor: pointer;
   width: 100%;
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 
 .button:hover {
@@ -99,4 +102,8 @@ input[type="checkbox"] {
   text-align: center;
   color: #0a8080;
   font-size:small;
+}
+
+.login-secondary{
+  padding-top: 10px;
 }

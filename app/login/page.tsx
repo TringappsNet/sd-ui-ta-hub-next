@@ -16,7 +16,11 @@ export default function LoginPage() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarVariant, setSnackbarVariant] = useState<"success" | "error">("success");
+ const clear=()=>{
+  user.email="",
+  user.password=""
 
+ }
  
   const validateForm = () => {
     let isValid = true;
@@ -45,7 +49,8 @@ export default function LoginPage() {
         // console.log("Login success", response.data);
         handleSnackbarOpen("Succesfully Login!!","success");
         toast.success("Login success");
-        router.push("/form");
+        router.push("/navbar");
+        clear();
       } catch (error: any) { 
         handleSnackbarOpen(error.message, "error");
       }
@@ -73,6 +78,8 @@ export default function LoginPage() {
   };
 
   return (
+    <div role="form" onKeyPress={(e) => { if (e.key === 'Enter') onLogin(e); }}>
+
     <form>
       <CustomSnackbar
         open={openSnackbar}
@@ -111,10 +118,7 @@ export default function LoginPage() {
           Forget password?
         </a>
 
-        <div className="checkbox">
-          <input type="checkbox" />
-          <p> Remember this device </p>
-        </div>
+        
         <button onClick={onLogin} className="button">
           Sign In
         </button>
@@ -131,5 +135,7 @@ export default function LoginPage() {
         </div>
       </div>
     </form>
+    </div>
+
   );
 }
