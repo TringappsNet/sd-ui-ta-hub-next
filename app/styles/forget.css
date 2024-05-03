@@ -41,6 +41,12 @@ h2 {
     }
   }
   
+  @media screen and (max-width: 368px) {
+    .card1 {
+      width: 85%; 
+      
+    }
+  }
   .Email{
     padding-top: 20px;
   }

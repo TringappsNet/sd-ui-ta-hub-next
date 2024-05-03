@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 //import Stack from '@mui/material/Stack';
-
+import './CustomSnackbar.css';
 interface CustomSnackbarProps {
   message: string;
   onClose: () => void;
@@ -35,7 +35,7 @@ const CustomSnackbar: React.FC<CustomSnackbarProps> = ({ message, variant, onClo
       // onClose={handleClose}
       autoHideDuration={3000}
     >
-      <div style={{ backgroundColor: `${bgColor}`, width: '700px', color: 'black', padding: '10px', borderRadius: '4px', position: 'relative' }}>
+      <div style={{ backgroundColor: `${bgColor}`, width: '700px', color: 'black', padding: '10px', borderRadius: '4px', position: 'relative' }} className='snack'>
       <IconButton
         size="small"
         aria-label="close"
@@ -43,7 +43,7 @@ const CustomSnackbar: React.FC<CustomSnackbarProps> = ({ message, variant, onClo
         style={{ position: 'absolute', color:'white',top: '50%', left: '50%', transform: 'translate(160%, -50%)', background:'none' }}
         onClick={(event: React.MouseEvent<HTMLButtonElement>) => handleClose(event, 'buttonClick')}
       >
-  <CloseIcon style={{marginLeft:"90px"}} />
+  <CloseIcon className="closeicon"style={{marginLeft:"90px"}} />
 </IconButton>
         <div style={{color:"white",paddingLeft:'20px',fontFamily:"inherit"}}>{message}</div>
       </div>
