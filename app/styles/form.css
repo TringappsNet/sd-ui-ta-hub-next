@@ -1,14 +1,17 @@
+  
 .container {
+    margin-top: 15px;
     margin-right: 0;
     display: flex;
     justify-content: end;
     align-items: center;
     height: 100vh;
-    font-size: 13px;
-    font-style: normal;
+    font-size: 0.857143em;
+    font-style: inherit;
+    line-height: 1.33333;
     font-family: inherit;
     font-weight: 350;
-    max-width: 500px;
+    max-width: 436px;
 }
 
 .position{
@@ -39,7 +42,7 @@ form {
     }
 
   .calender{
-    width: 214%;
+    width: 99%;
     height: 35px;
     padding: 8px;
     margin-bottom: 10px;
@@ -50,7 +53,8 @@ form {
   .fields{
     padding: 0 0 0 5px;
   }
-  
+
+ 
   .header h3 {
     margin: 0;
     font-weight: 200px;
