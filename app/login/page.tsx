@@ -8,8 +8,13 @@ import CustomSnackbar from "../CustomSnackbar/CustomSnackbar";
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch } from "react-redux";
+import { setEmail, setPassword } from "../GlobalRedux/Features/counter/counterSlice";
 
 export default function LoginPage() {
+  const dispatch = useDispatch();
+
+  
   const router = useRouter();
   const [user, setUser] = useState({
     email: "",
@@ -19,11 +24,12 @@ export default function LoginPage() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarVariant, setSnackbarVariant] = useState<"success" | "error">("success");
- const clear=()=>{
-  user.email="",
-  user.password=""
 
- }
+      const clear=()=>{
+        user.email="",
+        user.password=""
+
+      }
  
   const validateForm = () => {
     let isValid = true;
@@ -48,8 +54,8 @@ export default function LoginPage() {
     event.preventDefault();
     if (validateForm()) {
       try {
-        // const response = await axios.post("/api/users/login", user);
-        // console.log("Login success", response.data);
+        dispatch(setEmail(user.email));
+        dispatch(setPassword(user.password));
         handleSnackbarOpen("Succesfully Login!!","success");
         toast.success("Login success");
         router.push("/navbar");
@@ -72,11 +78,14 @@ export default function LoginPage() {
     setOpenSnackbar(false);
   };
 
+ 
   const handleEmailChange = (e: any) => {
+
     setUser({ ...user, email: e.target.value });
   };
 
   const handlePasswordChange = (e: any) => {
+
     setUser({ ...user, password: e.target.value });
   };
 
