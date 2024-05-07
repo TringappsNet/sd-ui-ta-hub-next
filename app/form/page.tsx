@@ -35,7 +35,7 @@ const Form: NextPage = () => {
     const dispatch = useDispatch();
 
     const formData = useSelector((state: any) => state.form.formData);
-    console.log('Data:',formData)
+    // console.log('Data:',formData)
     
     const submitFormHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -80,6 +80,20 @@ const Form: NextPage = () => {
             setPrimarySkill('');
             setSecondarySkill('');
             setClientName('');
+            setClientSpocName('');
+            setClientSpocContact('');
+            setAccountManager('')
+            setAccountManagerEmail('')
+            setJobTitle('')
+            setRoleType('');
+            setModeOfWork('');
+            setWorkLocation('');
+            setSalaryBudget('');
+            setModeOfInterviews('');
+            setApprovedBy('');
+            setYearsOfExperienceRequired('');
+            // setNoOfOpenings('');
+
 
             dispatch(submitForm({
                 requirementStartDate: isoReqStartDate,
@@ -118,6 +132,12 @@ const Form: NextPage = () => {
     const handleAddField = () => {
         setNoOfOpenings(prevNo => prevNo + 1);
     };
+
+    const removeOpening = (index: number) => {
+        const updatedOpenings = [...Array.from({ length: noOfOpenings })];
+        updatedOpenings.splice(index, 1);
+        setNoOfOpenings(updatedOpenings.length);
+    };        
 
   return (
     isOpen && (
@@ -175,11 +195,15 @@ const Form: NextPage = () => {
                     </div>
                 </div>
                 {Array.from({ length: noOfOpenings }).map((_, index) => (
-                    <div key={index} className="form-group p-2">
+                    <div key={index} className="form-group p-2 position-relative">
                         <label htmlFor={`opening-${index + 1}`} className="form-label">Opening {index + 1}</label>
-                        <input type="text" className="input-box" id={`opening-${index + 1}`} name={`opening-${index + 1}`} aria-describedby={`opening-${index + 1}-help`} />
+                        <div className="input-container">
+                            <input type="text" className="input-box" id={`opening-${index + 1}`} name={`opening-${index + 1}`} aria-describedby={`opening-${index + 1}-help`} />
+                            <FaTimes className="input-close-icon" onClick={() => removeOpening(index)} />
+                        </div>
                     </div>
                 ))}
+
             <div className="form-group pb-2 p-2">
               <label htmlFor="role" className="form-label">Role</label>
               <select className="input-box" name="role" value={roleType} onChange={(e) => setRoleType(e.target.value)} required>

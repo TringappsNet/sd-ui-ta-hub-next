@@ -29,11 +29,11 @@ form {
 
     .header {
         display: flex;
-        justify-content: space-between; /* Align items horizontally with space between */
+        justify-content: space-between;
         align-items: center;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
-        /* background-color: #f8f9fa; */
+        box-shadow: 0 6px 5px -5px var(--ds-shadow-overflow-spread, #091e4229);        /* background-color: #f8f9fa; */
         padding: 10px;
+        min-height: 55px;
     }
 
     .footer{
@@ -150,12 +150,12 @@ form {
 
 
 ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #d1cccc; 
 }
 
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #c2c2c2; 
+    background: #c4c4c4; 
 }
 
 .input-container {
@@ -168,16 +168,17 @@ form {
     right: 5px;
     transform: translateY(-50%);
     cursor: pointer;
-    height: 14px;
+    height: 16px;
     width: 20px;
 }
 
 .input-close-icon{
     position: absolute;
-    bottom: 91%;
-    right: 5px;
+    bottom: 33%;
+    right: 12px;
     transform: translateY(-50%);
     cursor: pointer;
+    color: #8d8d8d;
 }
 
 
