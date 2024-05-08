@@ -15,4 +15,10 @@
     left: 0;
     width: 100%; 
 }
-
+/* li{
+    display: flex;
+    flex-direction: row;
+} */
+a{
+    display: inline;
+}
