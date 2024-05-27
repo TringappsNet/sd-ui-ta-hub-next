@@ -1,9 +1,18 @@
 
-h1 {
+.h1 {
   text-align: center;
+  font-size: calc(1.375rem + 1.5vw);
+  color: #08b668;
+  font-weight: 600;
 }
 .error {
   color: red;
+}
+/* 
+.image{
+  width: 50%;
+  height: 100%;
+  background-color: green;
 }
 
 
@@ -12,28 +21,30 @@ form{
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
   /* justify-content: space-evenly; */
-  align-items: center;
+  /* align-items: center;
   margin: 0;
-  font-weight: 500;
+  font-weight: 500; */
   /* background-color: #0a8080; */
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif ;
-}
+  /* font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif ;
+} */
 
 
 .card1 {
-  min-height: 300px;
+  min-height: 408px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    padding: 20px;
-  width: 50%; 
-  max-width: 350px;
-  margin: 0 auto; 
+  padding: 20px;
+  /* width: 50%; */
+  max-width: 284px;
+  margin: 0 auto;
   background-color: #ffffff;
+  margin-top: 118px;
+  border-radius: 20px;
 }
 
 
-
+/* 
 @media screen and (max-width: 768px) {
   .card1 {
     width: 90%; 
@@ -47,12 +58,13 @@ form{
   }
 
 }
+
 @media screen and (max-width: 368px) {
   .card1 {
     width: 80%; 
   }
 }
-
+*/
 
 .Email{
   padding-top: 20px;
@@ -141,4 +153,65 @@ input[type="checkbox"] {
   cursor: pointer;
   padding-bottom: 10px;
   color: grey;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.image {
+  display: flex;
+  height: 100vh; /* 100% of the viewport height */
+  width: 100%;
+}
+
+.left, .right {
+  flex: 1; /* Both divs take up equal space */
+}
+
+.left {
+  background: linear-gradient(to bottom, rgb(15, 179, 144), rgb(5, 70, 5));
+}
+
+
+.right {
+  background-color: #f0f0f0; /* Example background color */
+}
+
+.background-image{
+  background-image: url("/public/images/Revenue-bro.png");
+  width:300px ;
+  height: 300px;
+}
+
+.animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  padding: 76px;
+}
+
+.word {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+  transform-origin: center center; /* Set the transform origin to the center */
+}
+
+.word:hover {
+  transform: translateY(-0.1em) translateZ(0); /* Apply translateZ(0) to ensure no layout change */
+  font-size: 1.5em;
+  color: #47ef63;
+  z-index: 2;
+}
+
+.word:not(:hover) {
+  transform: none;
 }

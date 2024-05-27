@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import "../styles/login.css";
@@ -90,69 +91,90 @@ export default function LoginPage() {
   };
 
   return (
+  <div className="image">
+    <div className="left">
+    <div className="background-image"></div>
+    <div className="animation-container">
+      <span className="word">t</span>
+      <span className="word">r</span>
+      <span className="word">i</span>
+      <span className="word">n</span>
+      <span className="word">g</span>
+      <span className="word">a</span>
+      <span className="word">p</span>
+      <span className="word">p</span>
+      <span className="word">s</span>
+    </div>
+
+    </div>
+    <div className="right">
     <div role="form" onKeyPress={(e) => { if (e.key === 'Enter') onLogin(e); }}>
 
-    <form>
-      <CustomSnackbar
-        open={openSnackbar}
-        message={snackbarMessage}
-        onClose={handleSnackbarClose}
-        variant={snackbarVariant}
+<form>
+  <CustomSnackbar
+    open={openSnackbar}
+    message={snackbarMessage}
+    onClose={handleSnackbarClose}
+    variant={snackbarVariant}
+  />
+
+  <div className="card1">
+    <h1 className="h1">Ta-HuB</h1>
+
+    <label htmlFor="email" className="Email">
+      Email
+    </label>
+    <input
+      className="input-field"
+      id="email"
+      type="text"
+      name="email"
+      value={user.email}
+      onChange={handleEmailChange}
+      placeholder="Email"
+    />
+
+      <label htmlFor="password">Password</label>
+      <div className="password-input">
+      <input
+        className="input-field"
+        id="password"
+        type={showPassword ? "text" : "password"}
+        value={user.password}
+        onChange={handlePasswordChange}
+        placeholder="Password"
       />
-
-      <div className="card1">
-        <h1>Login</h1>
-
-        <label htmlFor="email" className="Email">
-          Email
-        </label>
-        <input
-          className="input-field"
-          id="email"
-          type="text"
-          name="email"
-          value={user.email}
-          onChange={handleEmailChange}
-          placeholder="Email"
-        />
-
-          <label htmlFor="password">Password</label>
-          <div className="password-input">
-          <input
-            className="input-field"
-            id="password"
-            type={showPassword ? "text" : "password"}
-            value={user.password}
-            onChange={handlePasswordChange}
-            placeholder="Password"
-          />
-          <span className="input-icon" onClick={() => setShowPassword(!showPassword)}>
-            <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
-          </span>
-        </div>
-
-        <a href="/forget" className="forget">
-          Forget password?
-        </a>
-
-        
-        <button onClick={onLogin} className="button">
-          Sign In
-        </button>
-      </div>
-
-      <div className="login-secondary">
-        <div className="text-center">
-          <a href="#">Don’t have an employee account?</a>
-          <div>
-            <a href="/signup" className="signup">
-              Want to sign your company up with TOPS?
-            </a>
-          </div>
-        </div>
-      </div>
-    </form>
+      <span className="input-icon" onClick={() => setShowPassword(!showPassword)}>
+        <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
+      </span>
     </div>
+
+    <a href="/forget" className="forget">
+      Forget password?
+    </a>
+
+    
+    <button onClick={onLogin} className="button">
+      Sign In
+    </button>
+  </div>
+
+  <div className="login-secondary">
+    <div className="text-center">
+      <a href="#">Don’t have an employee account?</a>
+      <div>
+        <a href="/signup" className="signup">
+          Want to sign your company up with TOPS?
+        </a>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+    </div>
+  </div>
+  
 
   );
 }
